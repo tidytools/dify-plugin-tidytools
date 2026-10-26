@@ -1,0 +1,31 @@
+identity:
+  author: tidytools
+  name: tidytools
+  label:
+    en_US: TidyTools
+    zh_Hans: TidyTools
+  description:
+    en_US: Use your own RapidAPI key for TidyTools web data APIs.
+    zh_Hans: 使用自己的 RapidAPI 金鑰呼叫 TidyTools 網頁資料 API。
+  icon: icon.svg
+  tags: [productivity]
+credentials_for_provider:
+  rapidapi_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: RapidAPI key
+      zh_Hans: RapidAPI 金鑰
+    help:
+      en_US: Subscribe separately to BASIC on each API you use. The key is never a tool parameter.
+      zh_Hans: 每個使用的 API 都要個別訂閱 BASIC；金鑰不是工具參數。
+    placeholder:
+      en_US: Enter your RapidAPI key
+      zh_Hans: 輸入 RapidAPI 金鑰
+extra:
+  python:
+    source: main.py
+tools:
+  - tools/contact.yaml
+  - tools/ai_extract.yaml
+  - tools/markdown.yaml

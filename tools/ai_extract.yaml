@@ -1,0 +1,35 @@
+identity:
+  author: tidytools
+  name: ai_extract
+  label:
+    en_US: AI Web Extract
+    zh_Hans: AI 網頁擷取
+description:
+  human:
+    en_US: Extract requested fields as structured JSON from one public web page.
+    zh_Hans: 從單一公開網頁擷取指定欄位的結構化 JSON。
+  llm: Extract named fields from a public page. Supply a URL and an array of field names.
+parameters:
+  - name: url
+    type: string
+    required: true
+    form: llm
+    label: {en_US: Page URL, zh_Hans: 頁面網址}
+    human_description: {en_US: Public HTTP(S) page URL, zh_Hans: 公開 HTTP(S) 頁面網址}
+    llm_description: Full public HTTP(S) page URL.
+  - name: fields
+    type: array
+    required: true
+    form: llm
+    label: {en_US: Fields, zh_Hans: 欄位}
+    human_description: {en_US: Names of fields to extract (1 to 50), zh_Hans: 欲擷取的欄位名稱（1 至 50 個）}
+    llm_description: Array of 1 to 50 field names, such as ["title", "summary"].
+  - name: instructions
+    type: string
+    required: false
+    form: form
+    label: {en_US: Instructions, zh_Hans: 額外指示}
+    human_description: {en_US: Optional extraction instructions, zh_Hans: 可選的擷取指示}
+extra:
+  python:
+    source: tools/ai_extract.py

@@ -1,0 +1,41 @@
+identity:
+  author: tidytools
+  name: markdown
+  label:
+    en_US: Web to Markdown
+    zh_Hans: 網頁轉 Markdown
+description:
+  human:
+    en_US: Convert one web page to clean Markdown or plain text.
+    zh_Hans: 將單一網頁轉成乾淨的 Markdown 或純文字。
+  llm: Read a web page as Markdown for summarization or retrieval.
+parameters:
+  - name: url
+    type: string
+    required: true
+    form: llm
+    label: {en_US: Page URL, zh_Hans: 頁面網址}
+    human_description: {en_US: Page URL or domain, zh_Hans: 頁面網址或網域}
+    llm_description: Page URL or domain, such as example.com.
+  - name: format
+    type: select
+    required: false
+    form: form
+    default: markdown
+    options:
+      - {value: markdown, label: {en_US: Markdown, zh_Hans: Markdown}}
+      - {value: text, label: {en_US: Plain text, zh_Hans: 純文字}}
+    label: {en_US: Format, zh_Hans: 格式}
+    human_description: {en_US: Output content format, zh_Hans: 輸出內容格式}
+  - name: maxChars
+    type: number
+    required: false
+    form: form
+    min: 100
+    max: 500000
+    default: 12000
+    label: {en_US: Maximum characters, zh_Hans: 最多字元數}
+    human_description: {en_US: Maximum characters in this chunk, zh_Hans: 本段內容的最多字元數}
+extra:
+  python:
+    source: tools/markdown.py

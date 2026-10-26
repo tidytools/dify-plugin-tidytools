@@ -1,0 +1,12 @@
+# Dify CLI package exclusions (source and submission docs remain in the PR).
+test/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+.env.*
+.git/
+*.difypkg
+SUBMIT.md
+README.對照.md

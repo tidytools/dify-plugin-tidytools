@@ -1,0 +1,32 @@
+version: 0.1.0
+type: plugin
+author: tidytools
+name: tidytools
+label:
+  en_US: TidyTools
+  zh_Hans: TidyTools
+description:
+  en_US: Website contacts, AI extraction, and Markdown through RapidAPI.
+  zh_Hans: 透過 RapidAPI 擷取網站聯絡方式、結構化資料與 Markdown。
+created_at: '2026-10-24T00:00:00Z'
+icon: icon.svg
+privacy: PRIVACY.md
+repo: https://github.com/tidytools/dify-plugin-tidytools
+contact: tidytools@yukai.uk
+meta:
+  version: 0.0.1
+  minimum_dify_version: 1.6.0
+  arch: [amd64, arm64]
+  runner:
+    language: python
+    version: '3.12'
+    entrypoint: main
+plugins:
+  tools:
+    - provider/tidytools.yaml
+resource:
+  memory: 134217728
+  permission:
+    tool:
+      enabled: true
+tags: [productivity]

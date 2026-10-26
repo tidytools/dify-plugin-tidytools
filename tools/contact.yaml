@@ -1,0 +1,41 @@
+identity:
+  author: tidytools
+  name: contact
+  label:
+    en_US: Website Contacts
+    zh_Hans: 網站聯絡資料
+description:
+  human:
+    en_US: Find public emails, phone numbers, social profiles and contact pages on a company website.
+    zh_Hans: 尋找公司網站公開的電子郵件、電話、社群帳號與聯絡頁。
+  llm: Extract public contact details from one company website URL or domain.
+parameters:
+  - name: url
+    type: string
+    required: true
+    form: llm
+    label: {en_US: Website, zh_Hans: 網站}
+    human_description: {en_US: Website URL or domain, zh_Hans: 網站網址或網域}
+    llm_description: Company website URL or domain such as example.com.
+  - name: maxPages
+    type: number
+    required: false
+    form: form
+    min: 1
+    max: 8
+    default: 5
+    label: {en_US: Maximum pages, zh_Hans: 最多頁數}
+    human_description: {en_US: Home page plus likely contact pages, zh_Hans: 首頁及可能的聯絡頁}
+  - name: render
+    type: select
+    required: false
+    form: form
+    default: auto
+    options:
+      - {value: auto, label: {en_US: Automatic, zh_Hans: 自動}}
+      - {value: never, label: {en_US: HTTP only, zh_Hans: 僅 HTTP}}
+    label: {en_US: Rendering, zh_Hans: 網頁呈現}
+    human_description: {en_US: Browser fallback or HTTP only, zh_Hans: 瀏覽器備援或僅 HTTP}
+extra:
+  python:
+    source: tools/contact.py
